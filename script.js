@@ -443,15 +443,19 @@ function maybeResumeResult() {
   renderQuestion();
 }
 
-elements.startButton.addEventListener("click", () => {
-  resetState();
-  renderQuestion();
-});
+if (elements.startButton) {
+  elements.startButton.addEventListener("click", () => {
+    resetState();
+    renderQuestion();
+  });
+}
 
-elements.restartButton.addEventListener("click", () => {
-  resetState();
-  renderQuestion();
-});
+if (elements.restartButton) {
+  elements.restartButton.addEventListener("click", () => {
+    resetState();
+    renderQuestion();
+  });
+}
 
 elements.backButton.addEventListener("click", goBack);
 

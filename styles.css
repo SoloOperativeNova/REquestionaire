@@ -81,11 +81,11 @@ body {
 
 .hero {
   display: grid;
-  grid-template-columns: 1.35fr 0.85fr;
-  gap: 26px;
+  grid-template-columns: 1fr;
+  gap: 0;
   align-items: stretch;
   margin-bottom: 30px;
-  min-height: 580px;
+  min-height: 300px;
   padding: 108px 0 28px;
   background:
     linear-gradient(rgba(0, 0, 0, 0.32), rgba(0, 0, 0, 0.32)),
@@ -94,20 +94,10 @@ body {
   background-position: center;
 }
 
-.hero-copy,
 .hero-panel,
 .card {
   background: var(--surface);
   box-shadow: var(--shadow);
-}
-
-.hero-copy {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  color: #ffffff;
-  padding: 56px 54px 42px;
-  box-shadow: none;
 }
 
 .eyebrow,
@@ -137,31 +127,12 @@ h1 {
   font-size: clamp(2.9rem, 6vw, 5rem);
 }
 
-.lede,
 .question-description,
 .result-value,
 #result-data,
 .section-copy,
 .panel-copy {
   color: var(--muted);
-}
-
-.lede {
-  max-width: 52ch;
-  margin: 22px 0 0;
-  font-family: "EB Garamond", serif;
-  font-size: 1.3rem;
-  font-style: italic;
-  line-height: 1.6;
-  letter-spacing: 0.02em;
-  color: rgba(255, 255, 255, 0.92);
-}
-
-.hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 34px;
 }
 
 .button {
@@ -215,6 +186,8 @@ h1 {
   display: grid;
   gap: 20px;
   align-content: end;
+  max-width: 360px;
+  margin: 0 0 0 auto;
 }
 
 .panel-list {
@@ -417,7 +390,6 @@ h1 {
 
 @media (max-width: 860px) {
   .hero {
-    grid-template-columns: 1fr;
     padding-top: 92px;
   }
 
@@ -434,7 +406,6 @@ h1 {
     padding-top: 0;
   }
 
-  .hero-copy,
   .hero-panel,
   .card {
     padding: 24px;
