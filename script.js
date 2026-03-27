@@ -196,11 +196,11 @@ const questions = [
     title: "What brings you here today?",
     description: "Choose the main reason for your visit so we can direct you to the right service.",
     options: [
-      ["buyer", "Buy a home", "Home search, financing prep, and buyer guidance"],
-      ["financing", "Look for financing", "Mortgage guidance, loan options, and pre-qualification"],
-      ["seller", "Sell a property", "Valuation, listing prep, and agent support"],
-      ["renter", "Rent a home", "Rental search, applications, and leasing help"],
-      ["property-management", "Get property management help", "Services for rental owners and portfolios"]
+      ["buyer", "Looking to Buy", "Home search, financing prep, and buyer guidance"],
+      ["seller", "Looking to Sell", "Valuation, listing prep, and agent support"],
+      ["renter", "Looking to Rent", "Rental search, applications, and leasing help"],
+      ["financing", "Looking for Financing", "Mortgage guidance, loan options, and pre-qualification"],
+      ["property-management", "Looking for Property Management", "Services for rental owners and portfolios"]
     ]
   },
   {

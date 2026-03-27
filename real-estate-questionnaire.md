@@ -14,11 +14,11 @@ This is the primary filter and should appear first.
 
 Answer choices:
 
-- Buy a home
-- Look for financing
-- Sell a property
-- Rent a home
-- Get property management help
+- Looking to Buy
+- Looking to Sell
+- Looking to Rent
+- Looking for Financing
+- Looking for Property Management
 
 Suggested saved value:
 
