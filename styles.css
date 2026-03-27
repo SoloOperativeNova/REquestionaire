@@ -166,7 +166,7 @@ h1 {
 
 .questionnaire-shell {
   display: grid;
-  grid-template-columns: 0.92fr 1.08fr;
+  grid-template-columns: 1fr;
   gap: 0;
   margin-bottom: 0;
   background:
@@ -177,15 +177,16 @@ h1 {
 }
 
 .newsletter-content {
-  padding: 48px 36px;
+  padding: 40px 38px 28px;
   color: #ffffff;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
 }
 
 .content-brand-mark {
-  margin-bottom: 26px;
+  margin-bottom: 20px;
   min-height: 62px;
 }
 
@@ -199,14 +200,20 @@ h1 {
 }
 
 .section-title {
-  font-size: clamp(1.9rem, 3vw, 2.5rem);
+  max-width: 14ch;
+  font-size: clamp(2.1rem, 3vw, 2.9rem);
+}
+
+.newsletter-content .eyebrow,
+.newsletter-content .section-copy {
+  max-width: 42rem;
 }
 
 .questionnaire {
   display: grid;
   gap: 20px;
-  padding: 38px;
-  background: rgba(246, 244, 244, 0.96);
+  padding: 30px 38px 38px;
+  background: rgba(246, 244, 244, 0.98);
 }
 
 .card {
@@ -338,10 +345,6 @@ h1 {
     grid-template-columns: 1fr;
   }
 
-  .questionnaire-shell {
-    grid-template-columns: 1fr;
-  }
-
   .page-shell {
     width: min(100% - 20px, 1120px);
     padding-top: 0;
@@ -364,6 +367,10 @@ h1 {
   .newsletter-content,
   .questionnaire {
     padding: 24px;
+  }
+
+  .newsletter-content {
+    padding-bottom: 18px;
   }
 
   .brand-mark img {
