@@ -85,8 +85,8 @@ body {
   gap: 26px;
   align-items: stretch;
   margin-bottom: 30px;
-  min-height: 700px;
-  padding: 108px 0 36px;
+  min-height: 580px;
+  padding: 108px 0 28px;
   background:
     linear-gradient(rgba(0, 0, 0, 0.32), rgba(0, 0, 0, 0.32)),
     url("https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1400&q=80");
@@ -96,9 +96,7 @@ body {
 
 .hero-copy,
 .hero-panel,
-.card,
-.intro-card,
-.feature-card {
+.card {
   background: var(--surface);
   box-shadow: var(--shadow);
 }
@@ -137,10 +135,6 @@ h2 {
 h1 {
   max-width: 11ch;
   font-size: clamp(2.9rem, 6vw, 5rem);
-}
-
-.section-title {
-  font-size: clamp(2rem, 3vw, 2.7rem);
 }
 
 .lede,
@@ -223,10 +217,6 @@ h1 {
   align-content: end;
 }
 
-.hero-panel-alt {
-  background: rgba(255, 255, 255, 0.92);
-}
-
 .panel-list {
   margin: 0;
   padding-left: 18px;
@@ -234,7 +224,6 @@ h1 {
   color: var(--muted);
 }
 
-.panel-copy,
 .section-copy {
   margin: 0;
   font-family: "EB Garamond", serif;
@@ -243,24 +232,11 @@ h1 {
   line-height: 1.7;
 }
 
-.intro-band {
-  margin: 0 auto 30px;
-}
-
-.intro-card {
-  max-width: 780px;
-  margin: -84px auto 0;
-  padding: 34px 38px;
-  border-top: 4px solid var(--accent);
-  position: relative;
-  z-index: 2;
-}
-
 .questionnaire-shell {
   display: grid;
   grid-template-columns: 0.92fr 1.08fr;
   gap: 0;
-  margin-bottom: 30px;
+  margin-bottom: 0;
   background:
     linear-gradient(rgba(0, 69, 56, 0.82), rgba(0, 69, 56, 0.82)),
     url("https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1400&q=80");
@@ -269,7 +245,7 @@ h1 {
 }
 
 .newsletter-content {
-  padding: 64px 42px;
+  padding: 48px 36px;
   color: #ffffff;
   display: flex;
   flex-direction: column;
@@ -278,6 +254,10 @@ h1 {
 
 .light {
   color: #ffffff;
+}
+
+.section-title {
+  font-size: clamp(1.9rem, 3vw, 2.5rem);
 }
 
 .questionnaire {
@@ -415,17 +395,6 @@ h1 {
   display: none;
 }
 
-.feature-strip {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-
-.feature-card {
-  padding: 28px 24px;
-  border-top: 4px solid var(--accent);
-}
-
 .site-footer {
   background: var(--accent);
   color: #ffffff;
@@ -456,8 +425,7 @@ h1 {
     grid-template-columns: 1fr;
   }
 
-  .questionnaire-shell,
-  .feature-strip {
+  .questionnaire-shell {
     grid-template-columns: 1fr;
   }
 
@@ -481,11 +449,6 @@ h1 {
     width: min(100%, 1120px);
     flex-direction: column;
     align-items: flex-start;
-  }
-
-  .intro-card {
-    margin-top: -48px;
-    padding: 24px;
   }
 
   .newsletter-content,
