@@ -11,12 +11,26 @@ const flows = {
       ["single-family", "Single-family home", "Traditional detached home search"],
       ["condo-townhouse", "Condo or townhouse", "Lower-maintenance or attached-home options"],
       ["multi-family", "Multi-family property", "Property with multiple units"],
+      ["investment-property", "Investment property", "Buy for rental income or long-term investment"],
       ["unsure", "Not sure yet", "Still narrowing down the best fit"]
     ],
     objectiveOptions: [
       ["search", "Start my home search", "Browse homes and move into active search mode"],
       ["pre-qualify", "Get pre-qualified and plan my budget", "Work through financing and purchase range"],
       ["consultation", "Schedule a consultation", "Talk with an agent about the buying process"]
+    ]
+  },
+  financing: {
+    propertyOptions: [
+      ["primary-home", "Primary home purchase", "Financing for a main residence"],
+      ["investment-property", "Investment property", "Financing for rental or income property"],
+      ["refinance", "Refinance an existing property", "Review refinance or rate options"],
+      ["unsure", "Not sure yet", "Need help understanding the best financing path"]
+    ],
+    objectiveOptions: [
+      ["pre-qualify", "Get pre-qualified", "Start with a pre-qualification or approval path"],
+      ["loan-options", "Compare loan options", "Review mortgage programs and financing structure"],
+      ["financing-consult", "Speak with a financing specialist", "Book a direct financing conversation"]
     ]
   },
   seller: {
@@ -43,19 +57,6 @@ const flows = {
       ["browse-rentals", "Browse available rentals", "Review current listings"],
       ["rental-help", "Get help finding the right rental", "Receive guided support"],
       ["application", "Ask about application requirements", "Understand paperwork and next steps"]
-    ]
-  },
-  investor: {
-    propertyOptions: [
-      ["rental", "Rental property", "Income-focused buy-and-hold property"],
-      ["fix-flip", "Fix-and-flip opportunity", "Shorter-term value-add investment"],
-      ["multi-family", "Multi-family property", "Residential property with multiple units"],
-      ["land-commercial", "Commercial property", "Office, retail, industrial, or mixed-use"]
-    ],
-    objectiveOptions: [
-      ["opportunities", "Find investment opportunities", "View inventory that matches your criteria"],
-      ["analysis", "Analyze returns and strategy", "Work through numbers and acquisition strategy"],
-      ["investment-consult", "Speak with an investment-focused agent", "Book a direct consultation"]
     ]
   },
   "property-management": {
@@ -98,6 +99,23 @@ const routes = {
       offer: "buyer-consultation"
     }
   },
+  financing: {
+    "pre-qualify": {
+      page: "Financing Pre-Qualification Page",
+      description: "Start this visitor on a pre-qualification or mortgage application path.",
+      offer: "financing-pre-qualification"
+    },
+    "loan-options": {
+      page: "Mortgage Options Page",
+      description: "Show financing programs, product types, and lending guidance.",
+      offer: "mortgage-options"
+    },
+    "financing-consult": {
+      page: "Financing Consultation Page",
+      description: "Connect this visitor with a financing specialist or lending partner.",
+      offer: "financing-consultation"
+    }
+  },
   seller: {
     valuation: {
       page: "Home Valuation Page",
@@ -130,23 +148,6 @@ const routes = {
       page: "Rental Application Guide Page",
       description: "Provide application requirements and next-step instructions.",
       offer: "rental-application"
-    }
-  },
-  investor: {
-    opportunities: {
-      page: "Investment Listings Page",
-      description: "Route this lead to investor-relevant opportunities and inventory.",
-      offer: "investment-listings"
-    },
-    analysis: {
-      page: "Investor Strategy Page",
-      description: "Show analysis, return modeling, and acquisition support.",
-      offer: "investor-strategy"
-    },
-    "investment-consult": {
-      page: "Investor Consultation Booking Page",
-      description: "Book this lead into an investor-focused consultation.",
-      offer: "investor-consultation"
     }
   },
   "property-management": {
@@ -196,9 +197,9 @@ const questions = [
     description: "Choose the main reason for your visit so we can direct you to the right service.",
     options: [
       ["buyer", "Buy a home", "Home search, financing prep, and buyer guidance"],
+      ["financing", "Look for financing", "Mortgage guidance, loan options, and pre-qualification"],
       ["seller", "Sell a property", "Valuation, listing prep, and agent support"],
       ["renter", "Rent a home", "Rental search, applications, and leasing help"],
-      ["investor", "Invest in real estate", "Opportunities, return analysis, and strategy"],
       ["property-management", "Get property management help", "Services for rental owners and portfolios"]
     ]
   },
@@ -350,9 +351,9 @@ function goBack() {
 function humanizeSegment(segment) {
   const map = {
     buyer: "Buyer",
+    financing: "Financing lead",
     seller: "Seller",
     renter: "Renter",
-    investor: "Investor",
     "property-management": "Property owner"
   };
   return map[segment] ?? segment;
@@ -363,6 +364,9 @@ function humanizeProperty(propertyType) {
     "single-family": "single-family home",
     "condo-townhouse": "condo or townhouse",
     "multi-family": "multi-family property",
+    "investment-property": "investment property",
+    "primary-home": "primary home purchase",
+    refinance: "refinance request",
     "land-commercial": "land or commercial property",
     rental: "rental property",
     "fix-flip": "fix-and-flip opportunity",
@@ -395,15 +399,46 @@ function buildTimelinePhrase(timeline) {
   return phrases[timeline] ?? humanizeTimeline(timeline);
 }
 
+function withIndefiniteArticle(text) {
+  return /^[aeiou]/i.test(text) ? `an ${text}` : `a ${text}`;
+}
+
 function buildSummary() {
   const { segment, property_type: propertyType, objective, timeline } = appState.answers;
   const timelinePhrase = timeline ? ` ${buildTimelinePhrase(timeline)}` : "";
-  return `${humanizeSegment(segment)} interested in a ${humanizeProperty(propertyType)} and looking to ${humanizeObjective(segment, objective)}${timelinePhrase}`.replace(/\s+/g, " ").trim();
+  return `${humanizeSegment(segment)} interested in ${withIndefiniteArticle(humanizeProperty(propertyType))} and looking to ${humanizeObjective(segment, objective)}${timelinePhrase}`.replace(/\s+/g, " ").trim();
+}
+
+function resolveRoute(answers) {
+  const { segment, objective, property_type: propertyType } = answers;
+
+  if (segment === "buyer" && propertyType === "investment-property") {
+    const investmentBuyerRoutes = {
+      search: {
+        page: "Investment Property Listings Page",
+        description: "Route this buyer to investment-focused inventory and acquisition opportunities.",
+        offer: "investment-property-search"
+      },
+      "pre-qualify": {
+        page: "Investment Property Financing Page",
+        description: "Send this visitor to financing guidance specific to investment purchases.",
+        offer: "investment-property-financing"
+      },
+      consultation: {
+        page: "Investment Property Consultation Page",
+        description: "Book this buyer into a consultation focused on investment property strategy.",
+        offer: "investment-property-consultation"
+      }
+    };
+
+    return investmentBuyerRoutes[objective];
+  }
+
+  return routes[segment]?.[objective];
 }
 
 function renderResult() {
-  const { segment, objective } = appState.answers;
-  const route = routes[segment]?.[objective];
+  const route = resolveRoute(appState.answers);
 
   if (!route) {
     elements.resultTitle.textContent = "Recommendation unavailable";

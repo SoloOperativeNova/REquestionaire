@@ -15,15 +15,15 @@ This is the primary filter and should appear first.
 Answer choices:
 
 - Buy a home
+- Look for financing
 - Sell a property
 - Rent a home
-- Invest in real estate
 - Get property management help
 
 Suggested saved value:
 
 ```text
-segment = "buyer" | "seller" | "renter" | "investor" | "property-management"
+segment = "buyer" | "financing" | "seller" | "renter" | "property-management"
 ```
 
 ### Question 2: What type of property is this for?
@@ -35,6 +35,14 @@ Buyer or renter answer choices:
 - Single-family home
 - Condo or townhouse
 - Multi-family property
+- Investment property
+- Not sure yet
+
+Financing answer choices:
+
+- Primary home purchase
+- Investment property
+- Refinance an existing property
 - Not sure yet
 
 Seller answer choices:
@@ -74,6 +82,12 @@ Buyer answer choices:
 - Get pre-qualified and plan my budget
 - Schedule a consultation
 
+Financing answer choices:
+
+- Get pre-qualified
+- Compare loan options
+- Speak with a financing specialist
+
 Seller answer choices:
 
 - Find out what my property is worth
@@ -101,7 +115,7 @@ Property management answer choices:
 Suggested saved value:
 
 ```text
-objective = "search" | "pre-qualify" | "consultation" | "valuation" | "listing-prep" | "sell-soon" | "browse-rentals" | "rental-help" | "application" | "opportunities" | "analysis" | "investment-consult" | "services" | "portfolio-review" | "manager-consult"
+objective = "search" | "pre-qualify" | "consultation" | "loan-options" | "financing-consult" | "valuation" | "listing-prep" | "sell-soon" | "browse-rentals" | "rental-help" | "application" | "services" | "portfolio-review" | "manager-consult"
 ```
 
 ### Question 4: What is your timeline?
@@ -130,6 +144,15 @@ Route as soon as enough information is available to make a confident recommendat
 - `buyer + search` -> Buyer search page
 - `buyer + pre-qualify` -> Financing or buyer-prep page
 - `buyer + consultation` -> Buyer consultation booking page
+- `buyer + investment-property + search` -> Investment property listings page
+- `buyer + investment-property + pre-qualify` -> Investment property financing page
+- `buyer + investment-property + consultation` -> Investment property consultation page
+
+### Financing Routes
+
+- `financing + pre-qualify` -> Financing pre-qualification page
+- `financing + loan-options` -> Mortgage options page
+- `financing + financing-consult` -> Financing consultation page
 
 ### Seller Routes
 
@@ -163,7 +186,7 @@ Examples:
 
 - Buyer interested in a condo or townhouse and ready to start a home search
 - Seller requesting a property valuation within 30 days
-- Investor looking for multi-family opportunities and strategy help
+- Buyer looking for an investment property and financing guidance
 - Property owner requesting management services for a mixed portfolio
 
 ## Recommended Data Model
