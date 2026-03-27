@@ -185,7 +185,8 @@ const elements = {
   resultDescription: document.getElementById("result-description"),
   resultPage: document.getElementById("result-page"),
   resultSummary: document.getElementById("result-summary"),
-  resultData: document.getElementById("result-data")
+  resultData: document.getElementById("result-data"),
+  resultRestartButton: document.getElementById("result-restart-button")
 };
 
 const questions = [
@@ -455,6 +456,13 @@ if (elements.startButton) {
 
 if (elements.restartButton) {
   elements.restartButton.addEventListener("click", () => {
+    resetState();
+    renderQuestion();
+  });
+}
+
+if (elements.resultRestartButton) {
+  elements.resultRestartButton.addEventListener("click", () => {
     resetState();
     renderQuestion();
   });
