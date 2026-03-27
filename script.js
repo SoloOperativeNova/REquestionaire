@@ -274,7 +274,9 @@ function renderQuestion() {
 
   elements.resultCard.classList.add("hidden");
   elements.questionCard.classList.remove("hidden");
-  elements.restartButton.classList.remove("hidden");
+  if (elements.restartButton) {
+    elements.restartButton.classList.remove("hidden");
+  }
 
   elements.questionKicker.textContent = `Step ${appState.currentStep + 1}`;
   elements.questionTitle.textContent = question.title;
