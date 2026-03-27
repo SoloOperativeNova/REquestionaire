@@ -85,8 +85,8 @@ body {
   gap: 0;
   align-items: stretch;
   margin-bottom: 30px;
-  min-height: 300px;
-  padding: 108px 0 28px;
+  min-height: 220px;
+  padding: 108px 0 20px;
   background:
     linear-gradient(rgba(0, 0, 0, 0.32), rgba(0, 0, 0, 0.32)),
     url("https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1400&q=80");
@@ -180,14 +180,6 @@ h1 {
   flex-direction: column;
   justify-content: center;
   background: #ffffff;
-}
-
-.hero-aside {
-  display: grid;
-  gap: 20px;
-  align-content: end;
-  max-width: 360px;
-  margin: 0 0 0 auto;
 }
 
 .panel-list {
@@ -371,6 +363,15 @@ h1 {
 .invisible {
   visibility: hidden;
   pointer-events: none;
+}
+
+.bottom-summary {
+  margin-top: 28px;
+}
+
+.summary-panel {
+  max-width: 420px;
+  margin-left: auto;
 }
 
 .site-footer {
