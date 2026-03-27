@@ -26,10 +26,12 @@ body {
   background: var(--bg);
 }
 
-.topbar {
-  background: var(--accent);
-  color: #ffffff;
+.site-header {
+  position: absolute;
+  inset: 0 0 auto 0;
+  z-index: 5;
   padding: 14px 20px;
+  color: #ffffff;
 }
 
 .topbar-inner,
@@ -79,28 +81,35 @@ body {
 
 .hero {
   display: grid;
-  grid-template-columns: 1.45fr 0.8fr;
-  gap: 0;
+  grid-template-columns: 1.35fr 0.85fr;
+  gap: 26px;
   align-items: stretch;
   margin-bottom: 30px;
-  min-height: 480px;
+  min-height: 700px;
+  padding: 108px 0 36px;
   background:
-    linear-gradient(rgba(0, 69, 56, 0.68), rgba(0, 69, 56, 0.68)),
-    linear-gradient(120deg, rgba(255, 255, 255, 0.08), rgba(0, 0, 0, 0.16)),
-    linear-gradient(135deg, #7d8d85, #b4b0a8);
+    linear-gradient(rgba(0, 0, 0, 0.32), rgba(0, 0, 0, 0.32)),
+    url("https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1400&q=80");
+  background-size: cover;
+  background-position: center;
 }
 
 .hero-copy,
 .hero-panel,
-.card {
+.card,
+.intro-card,
+.feature-card {
   background: var(--surface);
   box-shadow: var(--shadow);
 }
 
 .hero-copy {
-  background: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   color: #ffffff;
-  padding: 70px 54px;
+  padding: 56px 54px 42px;
+  box-shadow: none;
 }
 
 .eyebrow,
@@ -130,10 +139,16 @@ h1 {
   font-size: clamp(2.9rem, 6vw, 5rem);
 }
 
+.section-title {
+  font-size: clamp(2rem, 3vw, 2.7rem);
+}
+
 .lede,
 .question-description,
 .result-value,
-#result-data {
+#result-data,
+.section-copy,
+.panel-copy {
   color: var(--muted);
 }
 
@@ -195,11 +210,21 @@ h1 {
 }
 
 .hero-panel {
-  padding: 44px 38px;
+  padding: 34px 30px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   background: #ffffff;
+}
+
+.hero-aside {
+  display: grid;
+  gap: 20px;
+  align-content: end;
+}
+
+.hero-panel-alt {
+  background: rgba(255, 255, 255, 0.92);
 }
 
 .panel-list {
@@ -209,9 +234,57 @@ h1 {
   color: var(--muted);
 }
 
+.panel-copy,
+.section-copy {
+  margin: 0;
+  font-family: "EB Garamond", serif;
+  font-size: 1.12rem;
+  font-style: italic;
+  line-height: 1.7;
+}
+
+.intro-band {
+  margin: 0 auto 30px;
+}
+
+.intro-card {
+  max-width: 780px;
+  margin: -84px auto 0;
+  padding: 34px 38px;
+  border-top: 4px solid var(--accent);
+  position: relative;
+  z-index: 2;
+}
+
+.questionnaire-shell {
+  display: grid;
+  grid-template-columns: 0.92fr 1.08fr;
+  gap: 0;
+  margin-bottom: 30px;
+  background:
+    linear-gradient(rgba(0, 69, 56, 0.82), rgba(0, 69, 56, 0.82)),
+    url("https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1400&q=80");
+  background-size: cover;
+  background-position: center;
+}
+
+.newsletter-content {
+  padding: 64px 42px;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.light {
+  color: #ffffff;
+}
+
 .questionnaire {
   display: grid;
   gap: 20px;
+  padding: 38px;
+  background: rgba(246, 244, 244, 0.96);
 }
 
 .progress-wrap {
@@ -342,6 +415,17 @@ h1 {
   display: none;
 }
 
+.feature-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.feature-card {
+  padding: 28px 24px;
+  border-top: 4px solid var(--accent);
+}
+
 .site-footer {
   background: var(--accent);
   color: #ffffff;
@@ -365,9 +449,15 @@ h1 {
 @media (max-width: 860px) {
   .hero {
     grid-template-columns: 1fr;
+    padding-top: 92px;
   }
 
   .result-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .questionnaire-shell,
+  .feature-strip {
     grid-template-columns: 1fr;
   }
 
@@ -391,5 +481,15 @@ h1 {
     width: min(100%, 1120px);
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .intro-card {
+    margin-top: -48px;
+    padding: 24px;
+  }
+
+  .newsletter-content,
+  .questionnaire {
+    padding: 24px;
   }
 }

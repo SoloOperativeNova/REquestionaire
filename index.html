@@ -10,13 +10,13 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="topbar">
+  <header class="site-header">
     <div class="topbar-inner">
       <div class="brand-lockup">
         <p class="brand-name">REquestionaire</p>
         <p class="brand-tag">Guided real estate intake</p>
       </div>
-      <a class="topbar-link" href="#question-card">Start</a>
+      <a class="topbar-link" href="#question-card">Start Questionnaire</a>
     </div>
   </header>
 
@@ -34,60 +34,97 @@
           <button id="restart-button" class="button button-secondary hidden" type="button">Start Over</button>
         </div>
       </div>
-      <aside class="hero-panel">
-        <p class="panel-label">What this captures</p>
-        <ul class="panel-list">
-          <li>Lead segment</li>
-          <li>Property type</li>
-          <li>Primary objective</li>
-          <li>Timeline and urgency</li>
-        </ul>
-      </aside>
+      <div class="hero-aside">
+        <article class="hero-panel">
+          <p class="panel-label">What this captures</p>
+          <ul class="panel-list">
+            <li>Lead segment</li>
+            <li>Property type</li>
+            <li>Primary objective</li>
+            <li>Timeline and urgency</li>
+          </ul>
+        </article>
+        <article class="hero-panel hero-panel-alt">
+          <p class="panel-label">Best use</p>
+          <p class="panel-copy">Send every visitor into the correct search page, consultation path, valuation flow, or management request.</p>
+        </article>
+      </div>
     </section>
 
-    <section class="questionnaire">
-      <div class="progress-wrap">
-        <div class="progress-meta">
-          <span id="progress-label">Question 1 of 4</span>
-          <span id="progress-percent">25%</span>
-        </div>
-        <div class="progress-bar" aria-hidden="true">
-          <div id="progress-fill" class="progress-fill"></div>
-        </div>
+    <section class="intro-band">
+      <div class="intro-card">
+        <p class="eyebrow">Routing-first design</p>
+        <h2 class="section-title">Structured for real estate websites.</h2>
+        <p class="section-copy">This intake is short by design. It qualifies intent early, reduces drop-off, and gives your business cleaner lead data for pages, forms, calendars, and CRM follow-up.</p>
+      </div>
+    </section>
+
+    <section class="questionnaire-shell">
+      <div class="newsletter-content">
+        <p class="eyebrow light">Website Questionnaire</p>
+        <h2 class="section-title light">Answer a few questions and we will point you to the right next step.</h2>
+        <p class="section-copy light">The layout and pacing here are meant to feel closer to a brokerage landing page, while still keeping the questionnaire fast and focused.</p>
       </div>
 
-      <div id="question-card" class="card">
-        <p id="question-kicker" class="question-kicker">Step 1</p>
-        <h2 id="question-title">What brings you here today?</h2>
-        <p id="question-description" class="question-description">
-          Choose the main reason for your visit so we can direct you to the right service.
-        </p>
-        <form id="question-form" class="options" novalidate></form>
-        <div class="card-actions">
-          <button id="back-button" class="button button-secondary" type="button">Back</button>
-        </div>
-      </div>
-
-      <div id="result-card" class="card hidden">
-        <p class="question-kicker">Recommendation</p>
-        <h2 id="result-title">Your best next step</h2>
-        <p id="result-description" class="question-description"></p>
-        <div class="result-grid">
-          <article class="result-panel">
-            <p class="result-label">Recommended page</p>
-            <p id="result-page" class="result-value"></p>
-          </article>
-          <article class="result-panel">
-            <p class="result-label">Lead summary</p>
-            <p id="result-summary" class="result-value"></p>
-          </article>
+      <div class="questionnaire">
+        <div class="progress-wrap">
+          <div class="progress-meta">
+            <span id="progress-label">Question 1 of 4</span>
+            <span id="progress-percent">25%</span>
+          </div>
+          <div class="progress-bar" aria-hidden="true">
+            <div id="progress-fill" class="progress-fill"></div>
+          </div>
         </div>
 
-        <div class="data-panel">
-          <p class="result-label">Saved routing data</p>
-          <pre id="result-data"></pre>
+        <div id="question-card" class="card">
+          <p id="question-kicker" class="question-kicker">Step 1</p>
+          <h2 id="question-title">What brings you here today?</h2>
+          <p id="question-description" class="question-description">
+            Choose the main reason for your visit so we can direct you to the right service.
+          </p>
+          <form id="question-form" class="options" novalidate></form>
+          <div class="card-actions">
+            <button id="back-button" class="button button-secondary" type="button">Back</button>
+          </div>
+        </div>
+
+        <div id="result-card" class="card hidden">
+          <p class="question-kicker">Recommendation</p>
+          <h2 id="result-title">Your best next step</h2>
+          <p id="result-description" class="question-description"></p>
+          <div class="result-grid">
+            <article class="result-panel">
+              <p class="result-label">Recommended page</p>
+              <p id="result-page" class="result-value"></p>
+            </article>
+            <article class="result-panel">
+              <p class="result-label">Lead summary</p>
+              <p id="result-summary" class="result-value"></p>
+            </article>
+          </div>
+
+          <div class="data-panel">
+            <p class="result-label">Saved routing data</p>
+            <pre id="result-data"></pre>
+          </div>
         </div>
       </div>
+    </section>
+
+    <section class="feature-strip">
+      <article class="feature-card">
+        <p class="panel-label">Buyers</p>
+        <p class="panel-copy">Send search, financing, and consultation leads into a cleaner buyer funnel.</p>
+      </article>
+      <article class="feature-card">
+        <p class="panel-label">Sellers</p>
+        <p class="panel-copy">Route valuation, listing-prep, and active seller conversations with less friction.</p>
+      </article>
+      <article class="feature-card">
+        <p class="panel-label">Investors & Owners</p>
+        <p class="panel-copy">Qualify investment and property-management intent before a manual follow-up is needed.</p>
+      </article>
     </section>
   </main>
 

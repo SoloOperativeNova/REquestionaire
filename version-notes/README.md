@@ -4,10 +4,12 @@ Use this folder to track project changes over time.
 
 ## Suggested Format
 
-Create one markdown file per update using a date-based filename:
+Create one markdown file per update using a simple numbered filename:
 
-- `2026-03-27-v1-initial-questionnaire.md`
-- `2026-04-02-v2-routing-update.md`
+- `00-initial-questionnaire.md`
+- `01-website-implementation.md`
+- `02-template-style-update.md`
+- `03-layout-alignment-update.md`
 
 Each note should include:
 

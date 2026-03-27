@@ -1,4 +1,4 @@
-# Version Notes: 2026-03-27 Template Style Update
+# Version Notes: Template Style Update
 
 ## Summary
 
@@ -8,7 +8,7 @@ Updated the questionnaire website styling to align more closely with the visual 
 
 - `index.html`
 - `styles.css`
-- `version-notes/2026-03-27-v3-template-style-update.md`
+- `version-notes/02-template-style-update.md`
 
 ## Changes Made
 

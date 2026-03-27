@@ -1,4 +1,4 @@
-# Version Notes: 2026-03-27 Website Implementation
+# Version Notes: Website Implementation
 
 ## Summary
 
@@ -10,7 +10,7 @@ Built the first working website version of the real estate questionnaire and pre
 - `styles.css`
 - `script.js`
 - `README.md`
-- `version-notes/2026-03-27-v2-website-implementation.md`
+- `version-notes/01-website-implementation.md`
 
 ## Changes Made
 

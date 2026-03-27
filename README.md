@@ -9,7 +9,7 @@ Static real estate website questionnaire for routing visitors to the right next 
 - `script.js` - questionnaire flow, routing logic, and saved state
 - `real-estate-questionnaire.md` - planning and content reference
 - `transfer.md` - original transfer guide
-- `version-notes/` - change log for project updates
+- `version-notes/` - numbered change log for project updates
 
 ## Run Locally
 

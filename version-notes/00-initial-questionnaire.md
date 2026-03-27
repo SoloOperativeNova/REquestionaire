@@ -1,4 +1,4 @@
-# Version Notes: 2026-03-27
+# Version Notes: Initial Questionnaire
 
 ## Summary
 
@@ -8,7 +8,7 @@ Created the first real-estate-specific website questionnaire based on the routin
 
 - `real-estate-questionnaire.md`
 - `version-notes/README.md`
-- `version-notes/2026-03-27-v1-initial-questionnaire.md`
+- `version-notes/00-initial-questionnaire.md`
 
 ## Changes Made
 
