@@ -281,6 +281,7 @@ function renderQuestion() {
   elements.questionDescription.textContent = question.description;
   elements.questionForm.innerHTML = "";
   elements.backButton.disabled = appState.currentStep === 0;
+  elements.backButton.classList.toggle("invisible", appState.currentStep === 0);
 
   options.forEach(([value, title, detail]) => {
     const wrapper = document.createElement("div");

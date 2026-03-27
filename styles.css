@@ -368,6 +368,11 @@ h1 {
   display: none;
 }
 
+.invisible {
+  visibility: hidden;
+  pointer-events: none;
+}
+
 .site-footer {
   background: var(--accent);
   color: #ffffff;
