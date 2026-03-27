@@ -263,6 +263,10 @@ function getOptions(question) {
 }
 
 function renderProgress() {
+  if (!elements.progressLabel || !elements.progressPercent || !elements.progressFill) {
+    return;
+  }
+
   const completed = Math.min(appState.currentStep + 1, questions.length);
   const percent = Math.round((completed / questions.length) * 100);
   elements.progressLabel.textContent = `Question ${completed} of ${questions.length}`;
